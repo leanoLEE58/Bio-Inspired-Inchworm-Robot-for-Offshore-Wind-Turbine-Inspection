@@ -15,10 +15,9 @@
 
 ### 🎥 System Demonstration
 
-<!-- Replace with your uploaded video thumbnail -->
-[![System Demo](https://img.youtube.com/vi/YOUR_VIDEO_ID/maxresdefault.jpg)](https://www.youtube.com/watch?v=YOUR_VIDEO_ID)
+[![System Demo](https://img.youtube.com/vi/1U_8g-SPhKs/maxresdefault.jpg)](https://www.youtube.com/watch?v=1U_8g-SPhKs)
 
-*Click to watch: Complete system demonstration including locomotion, detection, and manipulation (3 min)*
+*Click to watch: Complete system demonstration including locomotion, detection, and manipulation*
 
 ---
 
@@ -158,7 +157,7 @@ The research methodology follows a systematic problem-to-solution mapping:
 
 <div align="center">
 
-![Design Philosophy](https://github.com/user-attachments/assets/图2-1-整体装置设计思路.png)
+![Design Philosophy](https://github.com/user-attachments/assets/a6367d0b-82eb-4d06-82d8-e6f064404d16)
 
 **Figure 1**: Research workflow from problem identification to practical implementation. The diagram illustrates: renewable energy significance → confined space challenges → manual inspection inefficiencies → bio-inspired solution → experimental validation → deployment strategy.
 
@@ -185,7 +184,7 @@ Energy-Efficient Maintenance Platform
 
 <div align="center">
 
-![Mechanical Structure](https://github.com/user-attachments/assets/图2-2-机械装置整体结构图.png)
+![Mechanical Structure](https://github.com/user-attachments/assets/968b4d2b-defb-4ed7-a959-f69f5296b9e6)
 
 **Figure 2**: Complete mechanical assembly (SolidWorks CAD model). The modular architecture comprises five functional units: (i) **Front Anchor Module** - vacuum suction array for temporary fixation, (ii) **Pneumatic Drive Section** - 6× McKibben PAM actuators for bidirectional motion, (iii) **Rear Anchor Module** - alternating support mechanism, (iv) **Vision-Tactile Module** - multi-modal sensing suite, (v) **Flexible End-Effector** - compliant manipulation with 2-DOF wrist.
 
@@ -213,14 +212,14 @@ Energy-Efficient Maintenance Platform
 <tr>
 <td width="50%">
 
-![Biological Inspiration](https://github.com/user-attachments/assets/图3-1a-尺蠖爬行.jpg)
+![Biological Inspiration](https://github.com/user-attachments/assets/cb64765f-ac2c-44ee-a680-f471d3398d18)
 
 **(a) Natural inspiration**: *Geometridae* caterpillar demonstrating characteristic arched-body locomotion on narrow plant stems
 
 </td>
 <td width="50%">
 
-![Engineered System](https://github.com/user-attachments/assets/图4-1b-前移运动模块.jpg)
+![Engineered System](https://github.com/user-attachments/assets/4aef2ea8-a1ad-4712-bd28-3df4892e8c09)
 
 **(b) Engineering implementation**: Three-segment robotic system replicating attach-extend-release gait cycle
 
@@ -257,7 +256,7 @@ Energy-Efficient Maintenance Platform
 
 <div align="center">
 
-![Pneumatic Platform](https://github.com/user-attachments/assets/图3-5-气动平台示意.png)
+![Pneumatic Platform](https://github.com/user-attachments/assets/0661a5ef-5ff1-40ef-a469-09a8243d766c)
 
 **Figure 4**: Pneumatic actuation architecture. Compressed air (0.6 MPa source) flows through **MS6-LFR pressure regulator** to **manifold island**, distributing to **7× SMC ITV0030-3MS proportional valves**. Each valve independently controls one PAM actuator with ±0.001 MPa precision, enabling differential actuation for 3D spatial bending.
 
@@ -284,7 +283,7 @@ Energy-Efficient Maintenance Platform
 
 <div align="center">
 
-![Electronic Control](https://github.com/user-attachments/assets/图3-4-电控平台示意.png)
+![Electronic Control](https://github.com/user-attachments/assets/12cd56fd-66e9-4a20-80b5-4898b8dd6e99)
 
 **Figure 5**: Electronic control platform overview. **ESP32 dual-core MCU** (240 MHz Xtensa processors) serves as central controller, interfacing with proportional valves via **PWM-to-voltage conversion modules**. Real-time feedback from pressure sensors, angle encoders, and tactile arrays enables **closed-loop PID control** with 68 ms system response time.
 
@@ -294,7 +293,7 @@ Energy-Efficient Maintenance Platform
 
 <div align="center">
 
-![Control Flowchart](https://github.com/user-attachments/assets/图3-6-电控系统流程图.png)
+![Control Flowchart](https://github.com/user-attachments/assets/c531847c-ffe4-4847-bb7b-df483e64b9fc)
 
 **Figure 6**: Control system workflow diagram. **Power management**: 3S LiPo battery (11.1V/5Ah) + Pololu S18V20F12 regulator provides stable 12V/2A supply. **Data processing**: ESP32 fuses multi-modal sensor data (vision, tactile, proprioceptive) with gamepad inputs. **Actuation pipeline**: Generates PWM signals (0-255) → voltage mapping (0-5V) → valve control → PAM pressure modulation. **Safety systems**: Overcurrent/overpressure protection + 2000 ms watchdog timer.
 
@@ -325,7 +324,7 @@ PID Control Loop (Kp=1.2, Ki=0.05, Kd=0.3)
 
 <div align="center">
 
-![Circuit Schematic](https://github.com/user-attachments/assets/图3-7-电路设计原理图.png)
+![Circuit Schematic](https://github.com/user-attachments/assets/7726cb52-5d29-4282-bb10-d1fdd6b95341)
 
 **Figure 7**: Complete circuit schematic design. **Key subsystems**: (i) Power distribution network with multi-rail voltage regulation (3.3V/5V/12V), (ii) ESP32 microcontroller with peripheral interfaces (UART/I2C/SPI), (iii) PWM-to-analog converter for valve control, (iv) Multi-channel sensor signal conditioning (pressure/angle/tactile), (v) Protection circuits (overcurrent detection, relay isolation, EMI filtering). PCB layout optimized for noise reduction with dedicated ground planes and decoupling capacitors.
 
@@ -350,7 +349,7 @@ PID Control Loop (Kp=1.2, Ki=0.05, Kd=0.3)
 <tr>
 <td width="50%">
 
-![Volume Fraction](https://github.com/user-attachments/assets/图3-10a-气压体积分数.png)
+![Volume Fraction](https://github.com/user-attachments/assets/bef9400d-8a7b-4496-8b3b-6d762e7cd486)
 
 **(a) Gas-phase volume fraction field**  
 Two-phase flow interface shows **0.1-0.9 volume fraction gradient**, indicating severe inter-phase interaction. Stress fluctuations reach **±50% of baseline** due to velocity shear and local turbulence effects.
@@ -358,7 +357,7 @@ Two-phase flow interface shows **0.1-0.9 volume fraction gradient**, indicating 
 </td>
 <td width="50%">
 
-![Velocity Field](https://github.com/user-attachments/assets/图3-10b-气压表面速度.png)
+![Velocity Field](https://github.com/user-attachments/assets/609c54f7-0467-4fd7-a69c-3f7b7267f153)
 
 **(b) Surface velocity distribution**  
 Peak velocity **69.55×10⁶ m/s** in deceleration zones. Bottom region exhibits **streamline turbulence** and **vortex formation** (circled areas) causing asymmetric pressure field → non-uniform radial expansion → uncontrolled bending.
@@ -400,7 +399,7 @@ Peak velocity **69.55×10⁶ m/s** in deceleration zones. Bottom region exhibits
 <tr>
 <td width="50%">
 
-![Improved Fabrication](https://github.com/user-attachments/assets/图3-11a-改进PMA制作.jpg)
+![Improved Fabrication](https://github.com/user-attachments/assets/fff81b19-700f-40bb-910d-d6a0b66224b4)
 
 **(a) Second-generation fabrication process**  
 **Key improvements**: (i) High-density elastic braided sleeve (eliminates flow turbulence), (ii) Multi-ring sealed end fittings (prevents leakage), (iii) Heat-shrink protective layers (structural reinforcement), (iv) Diameter-matched elastic tubing (uniform pressure distribution).
@@ -408,7 +407,7 @@ Peak velocity **69.55×10⁶ m/s** in deceleration zones. Bottom region exhibits
 </td>
 <td width="50%">
 
-![Prototype Testing](https://github.com/user-attachments/assets/图3-11b-改进PMA实物.jpg)
+![Prototype Testing](https://github.com/user-attachments/assets/241e7c87-f5f1-4f1a-b362-d3f19d2260eb)
 
 **(b) Validated prototype**  
 **Test results**: Underwater leak test = 0% water ingress (1-hour submersion), Contraction uniformity = ±2% variance across 6× actuators, Fatigue life = >10,000 cycles @ 0.3 MPa.
@@ -427,7 +426,7 @@ Peak velocity **69.55×10⁶ m/s** in deceleration zones. Bottom region exhibits
 
 <div align="center">
 
-![Material Comparison](https://github.com/user-attachments/assets/图3-13-气动肌肉伸长影响因素.png)
+![Material Comparison](https://github.com/user-attachments/assets/0fd85527-e0b5-4810-b741-dfbba6ffba19)
 
 **Figure 10**: Systematic investigation of PAM performance factors. **Experimental matrix**: 3× tube materials (PE, silicone, latex) × 2× sleeve types (standard, stretchable). Test conditions: 58 kPa pressure, 20 cm initial length, 8 s inflation time. **Optimal configuration identified**: Latex tube + stretchable braided sleeve achieves **26 cm elongation** (130% of initial length), demonstrating superior elastic compliance and energy efficiency.
 
@@ -457,7 +456,7 @@ Peak velocity **69.55×10⁶ m/s** in deceleration zones. Bottom region exhibits
 <tr>
 <td width="50%">
 
-![MATLAB Simulation](https://github.com/user-attachments/assets/图3-14a-机械臂柔性弯曲仿真.png)
+![MATLAB Simulation](https://github.com/user-attachments/assets/3885b189-44de-4784-a051-28d2879545f0)
 
 **(a) MATLAB kinematic simulation**  
 Three-PAM configuration (120° symmetry) enables omnidirectional bending. Color gradient represents strain distribution: **maximum at outer fiber** (ε_max = 15%), **minimum at neutral axis** (ε ≈ 0%).
@@ -465,7 +464,7 @@ Three-PAM configuration (120° symmetry) enables omnidirectional bending. Color 
 </td>
 <td width="50%">
 
-![Physical Prototype](https://github.com/user-attachments/assets/图3-14b-刚柔耦合机械臂实物.jpg)
+![Physical Prototype](https://github.com/user-attachments/assets/c8fd3293-7220-48ad-997a-815ce664c77e)
 
 **(b) Physical prototype demonstration**  
 Achieves **180° bending range**. Hybrid design: **2-axis rigid wrist** (servo-driven, ±0.5 mm precision) + **6× PAM flexible section** (compliant interaction, ≤5 N contact force). Measured angular accuracy: **±3.2° vs. simulation**.
@@ -494,7 +493,7 @@ Achieves **180° bending range**. Hybrid design: **2-axis rigid wrist** (servo-d
 
 <div align="center">
 
-![Kinematic Validation](https://github.com/user-attachments/assets/图3-15-MATLAB仿真.png)
+![Kinematic Validation](https://github.com/user-attachments/assets/bb3d3d49-629e-4041-900f-affbff5a35fb)
 
 **Figure 12**: Forward kinematics experimental validation (MATLAB R2021b). Three test configurations: (i) **Config 1** - 45° bending (blue trajectory), (ii) **Config 2** - 90° bending (red trajectory), (iii) **Config 3** - 135° bending (green trajectory). Comparison between **theoretical model** (solid lines) and **experimental measurements** (discrete markers) yields average positional error of **8.2 mm** (1.4% of total arm length), confirming model fidelity for control implementation.
 
@@ -505,13 +504,19 @@ Achieves **180° bending range**. Hybrid design: **2-axis rigid wrist** (servo-d
 Based on geometric constraints of 120° symmetrical PAM arrangement:
 
 **Orientation angle** (defines bending plane):
-$$\phi = \arctan\left(\frac{m_2 - m_3}{2m_1 + m_2 + m_3}\right) + \text{quadrant correction}$$
+```math
+\phi = \arctan\left(\frac{m_2 - m_3}{2m_1 + m_2 + m_3}\right) + \text{quadrant correction}
+```
 
 **Curvature radius** (quantifies bending sharpness):
-$$r = \frac{h}{\sqrt{m_1^2 + m_2^2 + m_3^2 - m_1m_2 - m_1m_3 - m_2m_3 + 3h^2}}$$
+```math
+r = \frac{h}{\sqrt{m_1^2 + m_2^2 + m_3^2 - m_1m_2 - m_1m_3 - m_2m_3 + 3h^2}}
+```
 
 **Bending angle** (total angular displacement):
-$$\theta = \frac{1}{2r}\sqrt{m_1^2 + m_2^2 + m_3^2 - m_1m_2 - m_1m_3 - m_2m_3}$$
+```math
+\theta = \frac{1}{2r}\sqrt{m_1^2 + m_2^2 + m_3^2 - m_1m_2 - m_1m_3 - m_2m_3}
+```
 
 where $m_1, m_2, m_3$ are individual PAM lengths, and $h$ is structural height parameter.
 
@@ -532,7 +537,7 @@ where $m_1, m_2, m_3$ are individual PAM lengths, and $h$ is structural height p
 
 <div align="center">
 
-![Research Workflow](https://github.com/user-attachments/assets/图3-23-项目整体研究思路.png)
+![Research Workflow](https://github.com/user-attachments/assets/f967aca2-5eb8-4072-b650-fe501f810049)
 
 **Figure 13**: Comprehensive research methodology integrating multi-physics simulation, iterative prototyping, and experimental validation. The workflow encompasses: (i) **CFD analysis** → identified flow instabilities causing actuation errors, (ii) **Material optimization** → achieved 2× performance gain through systematic testing, (iii) **FEM validation** → confirmed kinematic model accuracy (<5% error), (iv) **Multi-modal fusion** → demonstrated 92% detection rate in challenging environments, (v) **System integration** → verified complete functionality in simulated wind turbine cavity. Results confirm technical feasibility of bio-inspired approach for industrial confined space inspection.
 
@@ -587,28 +592,17 @@ where $m_1, m_2, m_3$ are individual PAM lengths, and $h$ is structural height p
 
 ### Complete System Demonstration
 
-<!-- Replace with actual video after upload -->
-[![Full System Demo](https://img.youtube.com/vi/YOUR_VIDEO_ID/maxresdefault.jpg)](https://www.youtube.com/watch?v=YOUR_VIDEO_ID)
+[![Full System Demo](https://img.youtube.com/vi/1U_8g-SPhKs/maxresdefault.jpg)](https://www.youtube.com/watch?v=1U_8g-SPhKs)
 
-**Video 1**: Integrated system performance - Locomotion, multi-modal detection, and safe manipulation in simulated wind turbine blade cavity (3 minutes)
+**Video 1**: Integrated system performance - Locomotion, multi-modal detection, and safe manipulation in simulated wind turbine blade cavity
 
 ---
 
 ### Inchworm Locomotion Mechanics
 
-<!-- Replace with actual video -->
-[![Locomotion Demo](https://img.youtube.com/vi/YOUR_VIDEO_ID/maxresdefault.jpg)](https://www.youtube.com/watch?v=YOUR_VIDEO_ID)
+[![Locomotion Demo](https://img.youtube.com/vi/cCN1oI8rT0M/maxresdefault.jpg)](https://youtu.be/cCN1oI8rT0M)
 
-**Video 2**: Bio-inspired gait cycle demonstration in Ø30 cm confined space with real-time sensor feedback visualization (90 seconds)
-
----
-
-### Vision-Tactile Fusion Detection
-
-<!-- Replace with actual video -->
-[![Detection Demo](https://img.youtube.com/vi/YOUR_VIDEO_ID/maxresdefault.jpg)](https://www.youtube.com/watch?v=YOUR_VIDEO_ID)
-
-**Video 3**: Multi-modal defect detection under variable lighting conditions (500 lux → 20 lux) showing adaptive sensor fusion (60 seconds)
+**Video 2**: Bio-inspired gait cycle demonstration in Ø30 cm confined space with real-time sensor feedback visualization
 
 </div>
 
@@ -682,8 +676,8 @@ Bio-Inspired-Inchworm-Robot/
 │
 ├── docs/                              # Documentation
 │   ├── images/                        # All figures from paper
-│   │   ├── 图2-1-整体装置设计思路.png
-│   │   ├── 图2-2-机械装置整体结构图.png
+│   │   ├── fig-2-1-design-philosophy.png
+│   │   ├── fig-2-2-mechanical-structure.png
 │   │   └── ...
 │   ├── INSTALLATION.md                # Detailed setup guide
 │   ├── HARDWARE.md                    # Hardware assembly instructions
@@ -838,7 +832,7 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 ## 📞 Contact
 
-**Project Lead**: Tian Xinrong (Li Jiayi)  
+**Project Lead**: Tian Xinrong、Li Jiayi、Lu Jingjing、Lu Guohang、Zheng Zhiyang、Zhang Siyuan
 **Affiliation**: College of Electronic Engineering, Ocean University of China  
 **Email**: 332323223@stu.ouc.edu.cn  
 **GitHub**: [@leanoLEE58](https://github.com/leanoLEE58)
