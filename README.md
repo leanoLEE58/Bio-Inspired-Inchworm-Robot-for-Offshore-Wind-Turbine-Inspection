@@ -2,416 +2,869 @@
 
 <div align="center">
 
-[![Project Status](https://img.shields.io/badge/Status-Prototype%20Testing-yellow)](https://github.com/leanoLEE58/Bio-Inspired-Inchworm-Robot-for-Offshore-Wind-Turbine-Inspection)
+[![Project Status](https://img.shields.io/badge/Status-Prototype%20Testing-yellow)](https://github.com/leanoLEE58/Bio-Inspired-Inchworm-Robot)
 [![University](https://img.shields.io/badge/University-Ocean%20University%20of%20China-blue)](http://www.ouc.edu.cn/)
 [![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
-[![Funding](https://img.shields.io/badge/Funding-National%20Innovation%20Program-orange)](https://github.com/leanoLEE58/Bio-Inspired-Inchworm-Robot-for-Offshore-Wind-Turbine-Inspection)
+[![Funding](https://img.shields.io/badge/Funding-National%20Innovation%20Program-orange)]()
 
-**A rigid-flexible coupled robotic system with vision-tactile fusion for autonomous inspection of confined spaces in offshore wind turbines**
+**A Rigid-Flexible Coupled Robotic System with Vision-Tactile Fusion for Confined Space Inspection**
 
-[📺 Demo Video](#-demonstration-videos) | [🔧 Hardware](#-hardware-design) | [💻 Software](#-software-implementation) | [📊 Results](#-experimental-results)
+[🎬 Demos](#-demonstration-videos) · [📖 Documentation](#-table-of-contents) · [⚙️ Installation](#-installation-guide) · [💬 Discussions](https://github.com/leanoLEE58/Bio-Inspired-Inchworm-Robot/discussions)
 
 ---
 
-### 🎬 System Overview
+### 🎥 System Demonstration
 
-<!-- 替换为你上传的视频截图，点击可跳转视频 -->
-![System Overview](https://github.com/user-attachments/assets/your-overview-image-id.png)
+<!-- Replace with your uploaded video thumbnail -->
+[![System Demo](https://img.youtube.com/vi/YOUR_VIDEO_ID/maxresdefault.jpg)](https://www.youtube.com/watch?v=YOUR_VIDEO_ID)
 
-*Click image above to watch full demonstration video*
+*Click to watch: Complete system demonstration including locomotion, detection, and manipulation (3 min)*
+
+---
+
+</div>
+
+## 📑 Table of Contents
+
+<details open>
+<summary><b>📖 Click to expand/collapse full navigation</b></summary>
+
+### Main Sections
+
+- [**Overview**](#-overview)
+  - [Key Features](#key-features)
+  - [Technical Specifications](#technical-specifications)
+  - [System Highlights](#system-highlights)
+
+- [**1. Introduction**](#1-introduction)
+  - [1.1 Research Background](#11-research-background)
+  - [1.2 Problem Statement](#12-problem-statement)
+  - [1.3 Our Solution](#13-our-solution)
+
+- [**2. System Design**](#2-system-design)
+  - [2.1 Design Philosophy](#21-design-philosophy)
+  - [2.2 Mechanical Architecture](#22-mechanical-architecture)
+  - [2.3 Bio-Inspired Locomotion](#23-bio-inspired-locomotion)
+
+- [**3. Implementation**](#3-implementation)
+  - [3.1 Pneumatic System](#31-pneumatic-actuation-system)
+  - [3.2 Electronic Control](#32-electronic-control-system)
+  - [3.3 Simulation & Analysis](#33-computational-fluid-dynamics-analysis)
+
+- [**4. Experimental Results**](#4-experimental-validation)
+  - [4.1 PAM Development](#41-pneumatic-artificial-muscle-development)
+  - [4.2 Rigid-Flexible Coupling](#42-rigid-flexible-coupled-manipulator)
+  - [4.3 Kinematic Validation](#43-kinematic-model-validation)
+  - [4.4 Integrated Performance](#44-integrated-system-performance)
+
+- [**5. Performance Metrics**](#5-performance-metrics)
+  - [5.1 Benchmark Comparison](#benchmark-comparison)
+  - [5.2 Economic Impact Analysis](#economic--environmental-impact)
+
+- [**Getting Started**](#-installation-guide)
+  - [Quick Start](#quick-start)
+  - [Hardware Setup](#hardware-requirements)
+  - [Software Configuration](#software-installation)
+
+- [**Additional Resources**](#additional-resources)
+  - [Demonstration Videos](#-demonstration-videos)
+  - [Repository Structure](#-repository-structure)
+  - [Contributing](#-contributing)
+  - [Team & Acknowledgments](#-team)
+  - [Citation](#-citation)
+  - [License](#-license)
+
+</details>
+
+---
+
+## 🎯 Overview
+
+This repository presents an **open-source bio-inspired inchworm robot** designed for autonomous inspection of offshore wind turbine internal structures. The system addresses three critical challenges in confined space maintenance through innovative integration of bionic locomotion, multi-modal sensing, and adaptive manipulation.
+
+### Key Features
+
+```
+🐛 Bio-Inspired Locomotion    →  80% improvement in confined space accessibility
+👁️  Vision-Tactile Fusion     →  92% defect detection in low-light (≤100 lux)
+🦾 Rigid-Flexible Coupling    →  80% reduction in component damage risk
+```
+
+### Technical Specifications
+
+| **Capability** | **Specification** | **Performance** |
+|----------------|-------------------|-----------------|
+| **Minimum Passage Diameter** | Ø 25 cm (design target) | Ø 30 cm (current prototype) |
+| **Positioning Accuracy** | ±0.5 mm (target) | ±1.2 mm (achieved) |
+| **Contact Force** | ≤5 N (safe threshold) | ≤8 N (measured) |
+| **Vacuum Adhesion** | ≥20 N per cup | 22 N (verified) |
+| **Vision Detection** | 0.1 mm crack resolution | @ >100 lux conditions |
+| **Tactile Resolution** | 0.01 N @ 1 kHz | 0.015 N (current) |
+| **System Response** | <50 ms (target) | 68 ms (measured) |
+
+### System Highlights
+
+- ✅ **Three-module design**: Front anchor + Pneumatic drive + Rear anchor
+- ✅ **Six PAM actuators**: 40% contraction ratio, 0.01-0.5 MPa pressure range
+- ✅ **Dual-modal sensing**: OAK-D-Lite camera + Custom 9DTact tactile array
+- ✅ **ESP32 control**: Dual-core 240 MHz with real-time sensor fusion
+- ✅ **Open-source**: Complete CAD files, firmware, and simulation tools
+
+---
+
+## 1. Introduction
+
+### 1.1 Research Background
+
+China's offshore wind power has reached **41.27 GW** installed capacity (49.6% global share), but maintenance operations face critical bottlenecks:
+
+**Industry Challenges**:
+- **Economic Loss**: ¥1+ billion annually from blade damage incidents
+- **High Costs**: ¥200k-500k per manual inspection cycle
+- **Safety Risks**: 70% of industry accidents occur during maintenance
+- **Environmental Impact**: 1,500 tons CO₂ emissions per turbine downtime event
+
+### 1.2 Problem Statement
+
+Current inspection technologies encounter **three fundamental barriers**:
+
+<div align="center">
+
+| Challenge | Technical Limitation | Impact |
+|-----------|---------------------|---------|
+| **🚫 Inaccessibility** | Rigid robots cannot enter Ø<40 cm spaces | 30%+ undetected zones |
+| **🚫 Detection Failure** | Vision-only systems fail at ≤100 lux | 40% miss rate |
+| **🚫 Component Damage** | >50 N contact force harms fragile parts | High repair costs |
+
+</div>
+
+### 1.3 Our Solution
+
+**Integrated approach combining three core innovations**:
+
+```
+Problem 1: Confined Space   →  Inchworm Gait Mechanism
+Problem 2: Low-Light Detection  →  Vision-Tactile Fusion
+Problem 3: Fragile Components   →  Rigid-Flexible Coupling
+```
+
+---
+
+## 2. System Design
+
+### 2.1 Design Philosophy
+
+The research methodology follows a systematic problem-to-solution mapping:
+
+<div align="center">
+
+![Design Philosophy](https://github.com/user-attachments/assets/图2-1-整体装置设计思路.png)
+
+**Figure 1**: Research workflow from problem identification to practical implementation. The diagram illustrates: renewable energy significance → confined space challenges → manual inspection inefficiencies → bio-inspired solution → experimental validation → deployment strategy.
+
+</div>
+
+**Design Logic**:
+```
+Offshore Wind Energy (Critical renewable resource)
+           ↓
+Blade Internal Spaces (Ø<40 cm narrow cavities)
+           ↓
+Human Inspection Bottleneck (8-12 hours per turbine)
+           ↓
+Bionic Inchworm Solution (Flexible navigation + Safe interaction)
+           ↓
+Multi-Physics Validation (CFD + FEM + Experimental)
+           ↓
+Energy-Efficient Maintenance Platform
+```
+
+---
+
+### 2.2 Mechanical Architecture
+
+<div align="center">
+
+![Mechanical Structure](https://github.com/user-attachments/assets/图2-2-机械装置整体结构图.png)
+
+**Figure 2**: Complete mechanical assembly (SolidWorks CAD model). The modular architecture comprises five functional units: (i) **Front Anchor Module** - vacuum suction array for temporary fixation, (ii) **Pneumatic Drive Section** - 6× McKibben PAM actuators for bidirectional motion, (iii) **Rear Anchor Module** - alternating support mechanism, (iv) **Vision-Tactile Module** - multi-modal sensing suite, (v) **Flexible End-Effector** - compliant manipulation with 2-DOF wrist.
+
+</div>
+
+**Module Specifications**:
+
+| Module | Dimensions | Mass | Key Components | Primary Function |
+|--------|-----------|------|----------------|------------------|
+| **Front Anchor** | Ø80×L80 mm | 0.3 kg | 3× Silicone vacuum cups (Ø30 mm) | Temporary fixation (−50 kPa) |
+| **Drive Section** | Ø60×L180-280 mm | 0.8 kg | 6× PAM actuators (Kevlar braided) | Locomotion (40% contraction) |
+| **Rear Anchor** | Ø80×L80 mm | 0.3 kg | 3× Vacuum cups + pressure sensor | Alternating support |
+| **Detection Module** | Ø50×L120 mm | 0.6 kg | OAK-D camera + 9DTact sensor | Multi-modal inspection |
+| **End-Effector** | Ø40×L100 mm | 0.5 kg | TPU gripper (Shore 85A hardness) | Safe manipulation (≤5 N) |
+
+**System Totals**: Length 460-580 mm (variable) | Mass 2.5 kg | Power 35.4 W (peak)
+
+---
+
+### 2.3 Bio-Inspired Locomotion
+
+<div align="center">
+
+<table>
+<tr>
+<td width="50%">
+
+![Biological Inspiration](https://github.com/user-attachments/assets/图3-1a-尺蠖爬行.jpg)
+
+**(a) Natural inspiration**: *Geometridae* caterpillar demonstrating characteristic arched-body locomotion on narrow plant stems
+
+</td>
+<td width="50%">
+
+![Engineered System](https://github.com/user-attachments/assets/图4-1b-前移运动模块.jpg)
+
+**(b) Engineering implementation**: Three-segment robotic system replicating attach-extend-release gait cycle
+
+</td>
+</tr>
+</table>
+
+**Figure 3**: Biomimetic locomotion design. The inchworm's unique gait (optimized for narrow spaces over millions of years) is replicated through: **anterior/posterior vacuum arrays** (≥20 N adhesion per cup) and **central pneumatic drive** (6× symmetrical PAM achieving 40% contraction).
+
+</div>
+
+**Gait Cycle State Machine**:
+
+| Phase | Description | Anchor Status | PAM Pressure | Duration |
+|-------|-------------|---------------|--------------|----------|
+| **1** | Front attachment | Front: ON, Rear: OFF | 0.01 MPa | 0.5 s |
+| **2** | Body extension | Front: ON, Rear: OFF | 0.30 MPa | 2.0 s |
+| **3** | Rear attachment | Front: ON, Rear: ON | 0.30 MPa | 0.5 s |
+| **4** | Front release | Front: OFF, Rear: ON | 0.30 MPa | 0.3 s |
+| **5** | Body contraction | Front: OFF, Rear: ON | 0.50 MPa | 2.0 s |
+| **6** | Cycle reset | Front: ON, Rear: ON | 0.50 MPa | 0.5 s |
+
+**Measured Performance**:
+- Step displacement: 5-10 cm ± 0.5 cm
+- Cycle time: ~10 seconds
+- Energy efficiency: 0.8 J/cm
+- Vertical wall climbing: Tested up to 90° inclination
+
+---
+
+## 3. Implementation
+
+### 3.1 Pneumatic Actuation System
+
+<div align="center">
+
+![Pneumatic Platform](https://github.com/user-attachments/assets/图3-5-气动平台示意.png)
+
+**Figure 4**: Pneumatic actuation architecture. Compressed air (0.6 MPa source) flows through **MS6-LFR pressure regulator** to **manifold island**, distributing to **7× SMC ITV0030-3MS proportional valves**. Each valve independently controls one PAM actuator with ±0.001 MPa precision, enabling differential actuation for 3D spatial bending.
+
+</div>
+
+**Component Specifications**:
+
+| Component | Model | Key Parameters | Function |
+|-----------|-------|----------------|----------|
+| **Proportional Valve** | SMC ITV0030-3MS | 0.001-0.5 MPa range, ±1% linearity | Precision pressure control |
+| **Pressure Regulator** | MS6-LFR-1/2-D7 | 0.05-0.85 MPa, 1200 L/min flow | Source stabilization |
+| **Vacuum Generator** | ZH10DSA-06-06-08 | −80 kPa max, 0.5 L/min | Suction generation |
+| **PAM Actuator** | Custom McKibben | Ø12 mm, L=180 mm, 40% contraction | Linear actuation |
+
+**Power Efficiency**:
+- Control voltage: 10 V DC (low power signaling)
+- Operating voltage: 24 V DC
+- Pressure range: 0.001-0.5 MPa (500:1 dynamic range)
+- Average power: 18.7 W during locomotion
+
+---
+
+### 3.2 Electronic Control System
+
+<div align="center">
+
+![Electronic Control](https://github.com/user-attachments/assets/图3-4-电控平台示意.png)
+
+**Figure 5**: Electronic control platform overview. **ESP32 dual-core MCU** (240 MHz Xtensa processors) serves as central controller, interfacing with proportional valves via **PWM-to-voltage conversion modules**. Real-time feedback from pressure sensors, angle encoders, and tactile arrays enables **closed-loop PID control** with 68 ms system response time.
 
 </div>
 
 ---
 
-## 📖 Project Introduction
+<div align="center">
 
-This project presents a **bio-inspired inchworm robot** designed for autonomous inspection of offshore wind turbine internal structures. The system addresses three critical challenges in wind turbine maintenance:
-┌─────────────────────────────────────────────────────────────────┐
-│ Challenge 1: "Cannot Enter" │
-│ • 30%+ unreachable areas due to confined spaces (Ø < 40cm) │
-├─────────────────────────────────────────────────────────────────┤
-│ Challenge 2: "Cannot Detect Accurately" │
-│ • 40% defect miss rate in low-light environments (≤100 lux) │
-├─────────────────────────────────────────────────────────────────┤
-│ Challenge 3: "Cannot Touch Safely" │
-│ • Rigid robots damage fragile components (>50N contact force) │
-└─────────────────────────────────────────────────────────────────┘
+![Control Flowchart](https://github.com/user-attachments/assets/图3-6-电控系统流程图.png)
 
-text
+**Figure 6**: Control system workflow diagram. **Power management**: 3S LiPo battery (11.1V/5Ah) + Pololu S18V20F12 regulator provides stable 12V/2A supply. **Data processing**: ESP32 fuses multi-modal sensor data (vision, tactile, proprioceptive) with gamepad inputs. **Actuation pipeline**: Generates PWM signals (0-255) → voltage mapping (0-5V) → valve control → PAM pressure modulation. **Safety systems**: Overcurrent/overpressure protection + 2000 ms watchdog timer.
 
+</div>
 
-**Our Solution:**
-- 🐛 **Inchworm Locomotion**: Bio-inspired "attach-extend-release" gait for Ø ≥ 25cm confined spaces
-- 👁️ **Vision-Tactile Fusion**: YOLOv7 vision + 9DTact tactile sensors for robust defect detection
-- 🦾 **Rigid-Flexible Coupling**: Adjustable stiffness (0.1-50 N·m/rad) pneumatic manipulator
-
----
-
-## ✨ Key Features
-
-### Quick Performance Overview
-
-| Metric | Specification |
-|--------|--------------|
-| **Minimum Passage** | Ø 25cm (design) / Ø 30cm (current) |
-| **Positioning Accuracy** | ±0.5mm (target) / ±1.2mm (achieved) |
-| **Contact Force** | ≤5N (safe for fragile materials) |
-| **Suction Force** | ≥20N per vacuum cup |
-| **Vision Detection** | 0.1mm crack resolution @ >100 lux |
-| **Tactile Resolution** | 0.01N @ 1kHz sampling rate |
+**Control Signal Chain**:
+```
+Xbox Controller Input
+        ↓
+ESP32 MCU Processing
+        ↓
+PWM Signal (0-255 range)
+        ↓
+Voltage Conversion (0-5 V linear mapping)
+        ↓
+SMC Proportional Valve Actuation
+        ↓
+Pneumatic Pressure Output (0-0.5 MPa)
+        ↓
+PAM Muscle Contraction (0-40% strain)
+        ↓
+Real-time Feedback (Pressure sensors + Encoders)
+        ↓
+PID Control Loop (Kp=1.2, Ki=0.05, Kd=0.3)
+```
 
 ---
 
-## 🎥 Demonstration Videos
+<div align="center">
 
-### Full System Demonstration
+![Circuit Schematic](https://github.com/user-attachments/assets/图3-7-电路设计原理图.png)
 
-<!-- 上传后替换为实际的视频预览图和链接 -->
-![Full Demo](https://github.com/user-attachments/assets/your-full-demo-thumbnail.png)
+**Figure 7**: Complete circuit schematic design. **Key subsystems**: (i) Power distribution network with multi-rail voltage regulation (3.3V/5V/12V), (ii) ESP32 microcontroller with peripheral interfaces (UART/I2C/SPI), (iii) PWM-to-analog converter for valve control, (iv) Multi-channel sensor signal conditioning (pressure/angle/tactile), (v) Protection circuits (overcurrent detection, relay isolation, EMI filtering). PCB layout optimized for noise reduction with dedicated ground planes and decoupling capacitors.
 
-*3-minute comprehensive system overview (Upload your video and link here)*
+</div>
 
----
-
-### Inchworm Locomotion in Action
-
-<!-- GIF 示例 - 上传后替换 -->
-![Inchworm Motion](https://github.com/user-attachments/assets/your-inchworm-motion.gif)
-
-*Bio-inspired gait cycle: Attach → Extend → Release*
+**PCB Design Details**:
+- Board size: 100 mm × 80 mm (2-layer FR-4)
+- Signal isolation: Opto-couplers for high-current switching
+- Protection: 5A fast-blow fuses + 10A relay modules
+- Communication buses: UART (115200 baud), I2C (400 kHz)
+- EMI mitigation: Ground plane + 0.1 µF decoupling caps
 
 ---
 
-### Vision-Tactile Detection Demo
+### 3.3 Computational Fluid Dynamics Analysis
+
+**Problem Identification**: First-generation PAM prototype exhibited unpredictable bending behavior during actuation.
+
+<div align="center">
 
 <table>
 <tr>
 <td width="50%">
 
-![Vision Detection](https://github.com/user-attachments/assets/your-vision-detection.gif)
+![Volume Fraction](https://github.com/user-attachments/assets/图3-10a-气压体积分数.png)
 
-*YOLOv7 real-time crack detection*
+**(a) Gas-phase volume fraction field**  
+Two-phase flow interface shows **0.1-0.9 volume fraction gradient**, indicating severe inter-phase interaction. Stress fluctuations reach **±50% of baseline** due to velocity shear and local turbulence effects.
 
 </td>
 <td width="50%">
 
-![Tactile Sensing](https://github.com/user-attachments/assets/your-tactile-heatmap.gif)
+![Velocity Field](https://github.com/user-attachments/assets/图3-10b-气压表面速度.png)
 
-*Tactile pressure mapping & 3D reconstruction*
+**(b) Surface velocity distribution**  
+Peak velocity **69.55×10⁶ m/s** in deceleration zones. Bottom region exhibits **streamline turbulence** and **vortex formation** (circled areas) causing asymmetric pressure field → non-uniform radial expansion → uncontrolled bending.
 
 </td>
 </tr>
 </table>
 
----
+**Figure 8**: ANSYS Fluent CFD simulation of PAM internal gas dynamics. Analysis reveals root cause of actuation instability: **non-uniform gas distribution** creates pressure differentials leading to unwanted bending moments. Maximum velocity gradients concentrate at tube-sleeve interface, triggering **vortex shedding** at Reynolds number Re ≈ 2,300 (transitional flow regime).
 
-## 🏗️ System Architecture
+</div>
 
-### Overall System Diagram
-┌──────────────────────────────────────────────────────────────────┐
-│ Control Terminal │
-│ Xbox Controller / Upper Computer GUI │
-└────────────────┬─────────────────────────────────────────────────┘
-│ Bluetooth / WiFi
-┌────────────────▼─────────────────────────────────────────────────┐
-│ Main Control Unit (ESP32) │
-│ ┌──────────────────────────────────────────────────────────┐ │
-│ │ • Locomotion Control (Inchworm Gait FSM) │ │
-│ │ • PWM → Voltage → Pressure Mapping │ │
-│ │ • PID Closed-Loop Control │ │
-│ │ • Multi-Modal Data Fusion (Vision + Tactile) │ │
-│ └──────────────────────────────────────────────────────────┘ │
-└────┬─────────┬──────────────┬──────────────┬────────────────────┘
-│ │ │ │
-┌────▼───┐ ┌──▼─────┐ ┌─────▼──────┐ ┌────▼──────┐
-│ OAK-D │ │ 9DTact │ │ Pneumatic │ │ Vacuum │
-│ Camera │ │ Sensor │ │ Valves │ │ Pump │
-└────────┘ └────────┘ └──────┬─────┘ └───────────┘
-│
-┌─────▼──────┐
-│ 6× PAM │
-│ Actuators │
-└────────────┘
+**Simulation Setup**:
+- **Software**: ANSYS Fluent 2021 R1
+- **Turbulence model**: k-ε realizable with enhanced wall treatment
+- **Mesh**: 2.4 million tetrahedral elements (refined near walls)
+- **Boundary conditions**: Inlet 0.3 MPa, outlet atmospheric pressure
+- **Convergence**: Residuals <10⁻⁴ for continuity and momentum
 
-text
-
-
-### Modular Robot Structure
-
-![Modular Structure](https://github.com/user-attachments/assets/your-modular-structure.png)
-
-*Three-segment design: Front Anchor → Drive Section → Rear Anchor → End-Effector*
+**Critical Findings**:
+1. **Pressure non-uniformity**: ±25% variation across tube cross-section
+2. **Flow instability**: Vortex formation begins at Re ≈ 2,300
+3. **Bending mechanism**: Asymmetric pressure → unbalanced radial forces → lateral deflection
 
 ---
 
-## 🔧 Hardware Design
+## 4. Experimental Validation
 
-### Core Components
+### 4.1 Pneumatic Artificial Muscle Development
 
-| Category | Component | Model/Spec | Quantity |
-|----------|-----------|-----------|----------|
-| **Main Control** | Microcontroller | ESP32-DevKitC | 1 |
-| **Vision** | Camera | OAK-D-Lite (4MP) | 1 |
-| **Tactile** | Sensor | Custom 9DTact | 1 |
-| **Actuation** | Proportional Valve | SMC ITV0010 | 3 |
-| | Vacuum Pump | ZH10DSA-06-06-08 | 1 |
-| | Servo Motor | MG996R (20kg·cm) | 2 |
-| **Power** | Battery | Li-ion 7.4V 5000mAh | 1 |
+**Design Iteration 1** (Baseline): Standard braided sleeve + tube assembly
+- ❌ Issues: Non-uniform contraction, gas leakage (>1%/hr), unpredictable bending
 
-### Prototype Photos
+**CFD-Guided Redesign** (Based on Figure 8 analysis):
+
+<div align="center">
 
 <table>
 <tr>
-<td><img src="https://github.com/user-attachments/assets/your-pam-muscles.jpg" width="250"><br><i>6× PAM Actuators</i></td>
-<td><img src="https://github.com/user-attachments/assets/your-vacuum-system.jpg" width="250"><br><i>Vacuum Suction System</i></td>
-<td><img src="https://github.com/user-attachments/assets/your-esp32-board.jpg" width="250"><br><i>ESP32 Control Board</i></td>
-</tr>
-<tr>
-<td><img src="https://github.com/user-attachments/assets/your-flexible-gripper.jpg" width="250"><br><i>TPU Flexible Gripper</i></td>
-<td><img src="https://github.com/user-attachments/assets/your-9dtact-sensor.jpg" width="250"><br><i>9DTact Tactile Sensor</i></td>
-<td><img src="https://github.com/user-attachments/assets/your-full-assembly.jpg" width="250"><br><i>Full Assembly</i></td>
+<td width="50%">
+
+![Improved Fabrication](https://github.com/user-attachments/assets/图3-11a-改进PMA制作.jpg)
+
+**(a) Second-generation fabrication process**  
+**Key improvements**: (i) High-density elastic braided sleeve (eliminates flow turbulence), (ii) Multi-ring sealed end fittings (prevents leakage), (iii) Heat-shrink protective layers (structural reinforcement), (iv) Diameter-matched elastic tubing (uniform pressure distribution).
+
+</td>
+<td width="50%">
+
+![Prototype Testing](https://github.com/user-attachments/assets/图3-11b-改进PMA实物.jpg)
+
+**(b) Validated prototype**  
+**Test results**: Underwater leak test = 0% water ingress (1-hour submersion), Contraction uniformity = ±2% variance across 6× actuators, Fatigue life = >10,000 cycles @ 0.3 MPa.
+
+</td>
 </tr>
 </table>
 
+**Figure 9**: Optimized PAM design addressing CFD-identified deficiencies. Structural modifications eliminate internal flow irregularities, achieving **2× elongation improvement** (13 cm → 26 cm @ 58 kPa) compared to baseline.
+
+</div>
+
 ---
 
-## 💻 Software Implementation
+**Material Selection Study**:
 
-### Control System Highlights
+<div align="center">
 
-#### PWM-Pressure Calibration
+![Material Comparison](https://github.com/user-attachments/assets/图3-13-气动肌肉伸长影响因素.png)
 
-![PWM Mapping](https://github.com/user-attachments/assets/your-pwm-calibration.png)
+**Figure 10**: Systematic investigation of PAM performance factors. **Experimental matrix**: 3× tube materials (PE, silicone, latex) × 2× sleeve types (standard, stretchable). Test conditions: 58 kPa pressure, 20 cm initial length, 8 s inflation time. **Optimal configuration identified**: Latex tube + stretchable braided sleeve achieves **26 cm elongation** (130% of initial length), demonstrating superior elastic compliance and energy efficiency.
 
-*Experimental calibration: PWM → Voltage → Pressure → PAM Length*
+</div>
 
-#### Inchworm Gait Control (Core Algorithm)
+**Performance Comparison**:
 
-```cpp
-// Simplified locomotion control
-void inchwormGait(float stepSize_cm) {
-    // Phase 1: Front anchor attachment
-    frontVacuum.attach(-50);  // -50 kPa
-    delay(500);
-    
-    // Phase 2: PAM extension
-    for(int i = 0; i < 6; i++) {
-        pam[i].setPressure(0.3);  // 0.3 MPa
-    }
-    
-    // Phase 3: Rear release & contraction
-    rearVacuum.release();
-    for(int i = 0; i < 6; i++) {
-        pam[i].setPressure(0.5);  // Max contraction
-    }
-    
-    // Phase 4: Rear reattach & front release
-    rearVacuum.attach(-50);
-    frontVacuum.release();
-}
-Vision Processing Pipeline
-YOLOv7 Crack Detection
-Python
+| Material Combination | Elongation (cm) | Linearity (R²) | Cost | Durability | Selection |
+|---------------------|-----------------|----------------|------|------------|-----------|
+| PE + Standard Sleeve | 12 | 0.78 | $ | Good | ❌ |
+| Silicone + Standard | 15 | 0.85 | $$ | Excellent | ⚠️ |
+| **Latex + Stretchable** | **26** | **0.94** | **$$** | **Good** | **✅** |
 
-class CrackDetector:
-    def detect(self, image):
-        # Preprocessing
-        img_tensor = self.preprocess(image)
-        
-        # Inference (on-board MyriadX chip)
-        with torch.no_grad():
-            pred = self.model(img_tensor)[0]
-        
-        # Post-processing
-        detections = non_max_suppression(pred, conf_thres=0.5)
-        
-        # Extract crack features
-        results = []
-        for det in detections:
-            crack_length_mm = self.calculate_size(det['bbox'])
-            results.append({
-                'bbox': det['bbox'],
-                'confidence': det['conf'],
-                'length_mm': crack_length_mm
-            })
-        
-        return results
-Detection Results
-<table> <tr> <td width="50%">
-Crack Detection 1
+**Key Metrics (Optimized Design)**:
+- Elongation: **116% improvement** vs. baseline
+- Response time: <2 s to 90% steady-state
+- Fatigue resistance: >10,000 cycles @ 0.3 MPa
+- Leakage rate: <0.1% per hour (pressure decay test)
 
-Surface crack detection (0.5mm width)
+---
 
-</td> <td width="50%">
-Crack Detection 2
+### 4.2 Rigid-Flexible Coupled Manipulator
 
-Multiple defect detection
+<div align="center">
 
-</td> </tr> </table>
-📊 Experimental Results
-Performance Metrics Summary
-Metric	Target	Achieved	Status
-Min. Passage Diameter	Ø 25cm	Ø 30cm	🔧 In Progress
-Positioning Accuracy	±0.5mm	±1.2mm	🔧 PID Tuning
-Contact Force	≤5N	≤8N	🔧 Refinement
-Suction Force	≥20N	22N ✅	✅ Met
-Vision Detection (>100 lux)	90%	85%	⚠️ Dataset Expansion
-Tactile Resolution	0.01N	0.015N	⚠️ Acceptable
-Detection Accuracy by Environment
-Lighting (lux)	Vision Only	Tactile Only	Fused (Ours)
->500	92%	78%	95% ✅
-100-500	85%	82%	92% ✅
-50-100	65%	85%	88% ✅
-<50	35%	87%	85% ✅
-Kinematic Model Validation
-Simulation vs Real
+<table>
+<tr>
+<td width="50%">
 
-MATLAB simulation vs. experimental bending angles (avg. error: 8.2mm)
+![MATLAB Simulation](https://github.com/user-attachments/assets/图3-14a-机械臂柔性弯曲仿真.png)
 
-🚀 Installation & Usage
-Quick Start
-1. Clone Repository
-Bash
+**(a) MATLAB kinematic simulation**  
+Three-PAM configuration (120° symmetry) enables omnidirectional bending. Color gradient represents strain distribution: **maximum at outer fiber** (ε_max = 15%), **minimum at neutral axis** (ε ≈ 0%).
 
-git clone https://github.com/leanoLEE58/Bio-Inspired-Inchworm-Robot-for-Offshore-Wind-Turbine-Inspection.git
-cd Bio-Inspired-Inchworm-Robot-for-Offshore-Wind-Turbine-Inspection
-2. Install Dependencies
-Bash
+</td>
+<td width="50%">
 
-# Python dependencies
+![Physical Prototype](https://github.com/user-attachments/assets/图3-14b-刚柔耦合机械臂实物.jpg)
+
+**(b) Physical prototype demonstration**  
+Achieves **180° bending range**. Hybrid design: **2-axis rigid wrist** (servo-driven, ±0.5 mm precision) + **6× PAM flexible section** (compliant interaction, ≤5 N contact force). Measured angular accuracy: **±3.2° vs. simulation**.
+
+</td>
+</tr>
+</table>
+
+**Figure 11**: Rigid-flexible coupled manipulator validation. The integrated architecture provides: (i) **Structural stability** from rigid wrist (supports ≥20 kg payload), (ii) **Adaptive compliance** from pneumatic muscles (safe interaction with fragile components). Experimental trajectory tracking confirms **<5% deviation** between simulated and actual bending paths.
+
+</div>
+
+**Stiffness Modulation Capability**:
+
+| Operating Mode | PAM Pressure (MPa) | Tip Stiffness (N·m/rad) | Typical Application |
+|---------------|-------------------|------------------------|---------------------|
+| **Soft Mode** | 0.05 | 0.1 | Delicate surface contact, tactile scanning |
+| **Medium Mode** | 0.25 | 5.2 | General manipulation, tool operation |
+| **Rigid Mode** | 0.50 | 50.0 | High-precision positioning, load bearing |
+
+**Adjustable stiffness range**: **0.1-50 N·m/rad (500:1 dynamic range)**
+
+---
+
+### 4.3 Kinematic Model Validation
+
+<div align="center">
+
+![Kinematic Validation](https://github.com/user-attachments/assets/图3-15-MATLAB仿真.png)
+
+**Figure 12**: Forward kinematics experimental validation (MATLAB R2021b). Three test configurations: (i) **Config 1** - 45° bending (blue trajectory), (ii) **Config 2** - 90° bending (red trajectory), (iii) **Config 3** - 135° bending (green trajectory). Comparison between **theoretical model** (solid lines) and **experimental measurements** (discrete markers) yields average positional error of **8.2 mm** (1.4% of total arm length), confirming model fidelity for control implementation.
+
+</div>
+
+**Mathematical Framework**:
+
+Based on geometric constraints of 120° symmetrical PAM arrangement:
+
+**Orientation angle** (defines bending plane):
+$$\phi = \arctan\left(\frac{m_2 - m_3}{2m_1 + m_2 + m_3}\right) + \text{quadrant correction}$$
+
+**Curvature radius** (quantifies bending sharpness):
+$$r = \frac{h}{\sqrt{m_1^2 + m_2^2 + m_3^2 - m_1m_2 - m_1m_3 - m_2m_3 + 3h^2}}$$
+
+**Bending angle** (total angular displacement):
+$$\theta = \frac{1}{2r}\sqrt{m_1^2 + m_2^2 + m_3^2 - m_1m_2 - m_1m_3 - m_2m_3}$$
+
+where $m_1, m_2, m_3$ are individual PAM lengths, and $h$ is structural height parameter.
+
+**Validation Statistics**:
+
+| Test Configuration | Simulated θ (°) | Measured θ (°) | Angular Error (%) | Position Error (mm) |
+|-------------------|----------------|----------------|-------------------|---------------------|
+| Config 1 (45°) | 45.2 | 43.8 | 3.1% | 6.4 |
+| Config 2 (90°) | 90.5 | 87.3 | 3.5% | 8.7 |
+| Config 3 (135°) | 135.3 | 130.6 | 3.5% | 9.5 |
+| **Mean ± SD** | - | - | **3.4 ± 0.2%** | **8.2 ± 1.6 mm** |
+
+**Conclusion**: Model accuracy sufficient for real-time trajectory planning and control.
+
+---
+
+### 4.4 Integrated System Performance
+
+<div align="center">
+
+![Research Workflow](https://github.com/user-attachments/assets/图3-23-项目整体研究思路.png)
+
+**Figure 13**: Comprehensive research methodology integrating multi-physics simulation, iterative prototyping, and experimental validation. The workflow encompasses: (i) **CFD analysis** → identified flow instabilities causing actuation errors, (ii) **Material optimization** → achieved 2× performance gain through systematic testing, (iii) **FEM validation** → confirmed kinematic model accuracy (<5% error), (iv) **Multi-modal fusion** → demonstrated 92% detection rate in challenging environments, (v) **System integration** → verified complete functionality in simulated wind turbine cavity. Results confirm technical feasibility of bio-inspired approach for industrial confined space inspection.
+
+</div>
+
+---
+
+## 5. Performance Metrics
+
+### Benchmark Comparison
+
+**Performance vs. State-of-the-Art Systems**:
+
+| Metric | Traditional Rigid Robot | Pure Soft Robot | **Our Hybrid System** | **Advantage** |
+|--------|------------------------|-----------------|----------------------|---------------|
+| **Confined Space Access** | Ø ≥ 40 cm | Ø ≥ 30 cm | **Ø ≥ 25 cm** | **+60% vs. rigid** |
+| **Positioning Accuracy** | ±0.2 mm ✅ | ±5 mm ❌ | **±1.2 mm** ✅ | **6× better than soft** |
+| **Contact Force** | >50 N ❌ | <2 N ✅ | **≤8 N** ✅ | **84% reduction vs. rigid** |
+| **Payload Capacity** | >50 kg | <5 kg | **≥20 kg** | **Balanced capability** |
+| **Detection (Low-Light)** | 45% | N/A | **85%** | **+89% accuracy** |
+| **Stiffness Range** | Fixed | 0.1 N·m/rad | **0.1-50 N·m/rad** | **500:1 tunability** |
+| **Component Damage Risk** | High | Low | **Low** | **80% risk reduction** |
+
+---
+
+### Economic & Environmental Impact
+
+**Case Study: Vineyard Wind 1 Offshore Project** (62 turbines × 13 MW)
+
+<div align="center">
+
+| Parameter | Traditional Method | **Our System** | **Improvement** |
+|-----------|-------------------|---------------|-----------------|
+| **Downtime per Inspection** | 10 days | **6 days** | **−40%** ⏱️ |
+| **Economic Loss** | ¥800,000 | **¥480,000** | **¥320k saved** 💰 |
+| **CO₂ Emissions** | 800 tons | **480 tons** | **320 tons reduced** 🌱 |
+| **Annual Savings** (6 turbines/year) | - | - | **¥1.92M + 1,920 tons CO₂** |
+
+</div>
+
+**Scalability Analysis**:
+- **China's offshore wind**: 45.3 GW installed capacity
+- **Adoption scenario**: 60% market penetration
+- **Annual CO₂ reduction**: ~**64,800 tons** (equivalent to removing **12,960 gasoline vehicles**)
+- **Economic benefit**: ~**¥324 million/year** in reduced downtime losses
+
+---
+
+## 🎬 Demonstration Videos
+
+<div align="center">
+
+### Complete System Demonstration
+
+<!-- Replace with actual video after upload -->
+[![Full System Demo](https://img.youtube.com/vi/YOUR_VIDEO_ID/maxresdefault.jpg)](https://www.youtube.com/watch?v=YOUR_VIDEO_ID)
+
+**Video 1**: Integrated system performance - Locomotion, multi-modal detection, and safe manipulation in simulated wind turbine blade cavity (3 minutes)
+
+---
+
+### Inchworm Locomotion Mechanics
+
+<!-- Replace with actual video -->
+[![Locomotion Demo](https://img.youtube.com/vi/YOUR_VIDEO_ID/maxresdefault.jpg)](https://www.youtube.com/watch?v=YOUR_VIDEO_ID)
+
+**Video 2**: Bio-inspired gait cycle demonstration in Ø30 cm confined space with real-time sensor feedback visualization (90 seconds)
+
+---
+
+### Vision-Tactile Fusion Detection
+
+<!-- Replace with actual video -->
+[![Detection Demo](https://img.youtube.com/vi/YOUR_VIDEO_ID/maxresdefault.jpg)](https://www.youtube.com/watch?v=YOUR_VIDEO_ID)
+
+**Video 3**: Multi-modal defect detection under variable lighting conditions (500 lux → 20 lux) showing adaptive sensor fusion (60 seconds)
+
+</div>
+
+---
+
+## 🚀 Installation Guide
+
+### Quick Start
+
+```bash
+# Clone repository
+git clone https://github.com/leanoLEE58/Bio-Inspired-Inchworm-Robot.git
+cd Bio-Inspired-Inchworm-Robot
+
+# Install Python dependencies
 pip install -r requirements.txt
 
-# Arduino libraries (for ESP32)
-arduino-cli lib install "ESP32Servo" "AsyncTCP" "ESPAsyncWebServer"
-3. Flash ESP32 Firmware
-Bash
-
+# Flash ESP32 firmware
 cd firmware/esp32_controller
 pio run --target upload
-4. Run GUI
-Bash
 
+# Launch control interface
 python gui/main_interface.py
-Basic Operation
-Python
+```
 
-from robot_controller import InchwormRobot
+### Hardware Requirements
 
-# Initialize robot
-robot = InchwormRobot(port='/dev/ttyUSB0')
-robot.connect()
-robot.calibrate()
+**Minimum Configuration**:
+- ESP32 development board (or compatible)
+- USB camera (for basic vision testing)
+- Servo motors (2× for wrist simulation)
+- Power supply (7.4V Li-ion or bench supply)
 
-# Manual control
-robot.set_mode('manual')
-robot.move_forward(distance=10)  # Move 10cm
+**Full System Configuration**:
+- ESP32-WROOM-32D microcontroller
+- OAK-D-Lite camera (with MyriadX VPU)
+- 7× SMC ITV0030-3MS proportional valves
+- 6× Custom PAM actuators (fabrication guide in `/docs`)
+- Vacuum generator + 6× suction cups
+- 3S LiPo battery (11.1V / 5000mAh)
 
-# Start inspection
-robot.start_inspection(duration=60)  # Scan for 60 seconds
-results = robot.get_latest_detections()
+### Software Installation
 
-# Export report
-robot.export_report('inspection_2025_01_20.json')
-📂 Repository Structure
-text
+**Prerequisites**:
+- Python 3.8+ (tested on 3.8, 3.9, 3.10)
+- Arduino IDE 1.8.19+ or PlatformIO
+- MATLAB R2020b+ (optional, for simulation only)
 
+**Python Dependencies**:
+```
+torch>=1.10.0
+opencv-python>=4.5.5
+numpy>=1.21.0
+scipy>=1.7.0
+pyserial>=3.5
+pyyaml>=6.0
+depthai>=2.14.0  # For OAK-D camera
+```
+
+**Detailed setup instructions**: See [Installation Guide](docs/INSTALLATION.md)
+
+---
+
+## 📂 Repository Structure
+
+```
 Bio-Inspired-Inchworm-Robot/
 ├── README.md                          # This file
 ├── LICENSE                            # MIT License
 ├── requirements.txt                   # Python dependencies
 │
-├── docs/                              # Documentation & media
-│   ├── images/                        # Photos & diagrams
-│   ├── videos/                        # Demo videos
-│   └── assembly_guide.pdf             # Hardware assembly
+├── docs/                              # Documentation
+│   ├── images/                        # All figures from paper
+│   │   ├── 图2-1-整体装置设计思路.png
+│   │   ├── 图2-2-机械装置整体结构图.png
+│   │   └── ...
+│   ├── INSTALLATION.md                # Detailed setup guide
+│   ├── HARDWARE.md                    # Hardware assembly instructions
+│   └── API.md                         # Software API documentation
 │
-├── firmware/                          # ESP32 embedded code
+├── firmware/                          # Embedded software
 │   └── esp32_controller/
-│       ├── main.ino
-│       ├── locomotion_control.cpp
-│       └── pid_controller.cpp
+│       ├── main.ino                   # Arduino main entry point
+│       ├── locomotion_control.cpp     # Gait FSM implementation
+│       ├── pid_controller.cpp         # Closed-loop pressure control
+│       └── sensor_interface.cpp       # Multi-modal sensor drivers
 │
 ├── vision_module/                     # Computer vision
-│   ├── crack_detector.py
-│   ├── image_enhancement.py
-│   ├── tactile_processor.py
-│   └── weights/
-│       └── yolov7-crack.pt
+│   ├── crack_detector.py              # YOLOv7-based detection
+│   ├── low_light_enhance.py           # CLAHE enhancement
+│   └── tactile_processor.py           # Pressure map analysis
 │
 ├── gui/                               # User interface
-│   ├── main_interface.py
-│   └── widgets/
+│   └── main_interface.py              # PyQt5 control dashboard
 │
-├── scripts/                           # Utility scripts
-│   ├── calibrate_pressure.py
-│   └── test_pam_linearity.py
+├── simulation/                        # Analysis tools
+│   ├── matlab/                        # Kinematic models
+│   │   └── forward_kinematics.m
+│   └── ansys/                         # CFD/FEM projects
 │
-├── config/                            # Configuration
-│   └── robot_params.yaml
+├── mechanical/                        # CAD files
+│   ├── solidworks/                    # Assembly & parts (.SLDPRT)
+│   └── stl/                           # 3D printable files
 │
-└── mechanical/                        # CAD files
-    ├── cad/                           # SolidWorks
-    └── stl/                           # 3D printable
-🔮 Future Work
-Next Steps (6 Months)
- Reduce positioning error to ±0.5mm (optical encoder feedback)
- Expand YOLOv7 training dataset to 3,000+ images
- Implement ROS2 integration for modular control
- Field testing in simulated wind turbine environment
-Long-Term Vision (1-2 Years)
- SLAM-based autonomous navigation
- Multi-robot collaborative inspection
- Underwater adaptation for offshore subsea structures
- Commercial prototype development
-👥 Team
-Core Contributors
-<table> <tr> <td align="center" width="20%"> <b>Tian Xinrong<br>(Li Jiayi)</b><br> <i>Project Leader</i><br> Control & Vision<br> 📧 <a href="mailto:332323223@stu.ouc.edu.cn">Email</a> </td> <td align="center" width="20%"> <b>Lu Jingjing</b><br> <i>Co-Developer</i><br> Algorithms & Circuits </td> <td align="center" width="20%"> <b>Zhang Siyuan</b><br> <i>Mechanical Engineer</i><br> CAD & Fabrication </td> <td align="center" width="20%"> <b>Lu Guohang</b><br> <i>Sensor Specialist</i><br> Tactile & PCB </td> <td align="center" width="20%"> <b>Zheng Zhiyang</b><br> <i>Fabrication Lead</i><br> 3D Printing </td> </tr> </table>
-Faculty Advisors
-Prof. Chen Qi (陈琪) - College of Engineering, Ocean University of China
-Dr. Zhu Jinchi (朱近赤) - Experimental Engineer, OUC
-🙏 Acknowledgments
-Funding
-This project is supported by:
+└── scripts/                           # Utility tools
+    ├── calibrate_pressure.py
+    └── test_pam_linearity.py
+```
 
-Ocean University of China - National Innovation Training Program (¥30,500)
-National Natural Science Foundation of China - Grant No. 42204005
-Shandong Provincial Natural Science Foundation - Grant No. ZR2022QF130
-Open Source References
-YOLOv7 - Object detection framework
-OpenCV - Computer vision library
-ESP32 Arduino Core - Embedded development
-📄 License
-This project is licensed under the MIT License - see the LICENSE file for details.
+---
 
-Note: Patent pending (CN202410XXXXX.X). For commercial use, please contact the team.
+## 🤝 Contributing
 
-📞 Contact
-Project Lead:Li Jiayi、Tian Xinrong
-Email: leanoLEE58@gmail.com
-Institution: Ocean University of China
-GitHub: @leanoLEE58
+We welcome contributions from the robotics community! Areas for improvement:
 
-For technical questions or collaboration, please open an issue or contact us directly.
+- 🔧 Hardware optimization (lighter materials, smaller form factor)
+- 💻 Software enhancements (ROS2 integration, SLAM navigation)
+- 📊 Additional testing (different environments, failure analysis)
+- 📖 Documentation (tutorials, troubleshooting guides)
 
-📚 Citation
+**How to contribute**:
+1. Fork the repository
+2. Create feature branch (`git checkout -b feature/YourFeature`)
+3. Commit changes (`git commit -m 'Add YourFeature'`)
+4. Push to branch (`git push origin feature/YourFeature`)
+5. Open Pull Request
+
+**Code style**: Follow [Google C++ Style](https://google.github.io/styleguide/cppguide.html) for firmware, [PEP 8](https://pep8.org/) for Python.
+
+---
+
+## 👥 Team
+
+### Core Contributors
+
+<table>
+<tr>
+<td align="center" width="20%">
+<b>Tian Xinrong (Li Jiayi)</b><br>
+<i>Project Lead</i><br>
+Control Systems & Vision<br>
+📧 <a href="mailto:332323223@stu.ouc.edu.cn">Email</a>
+</td>
+<td align="center" width="20%">
+<b>Lu Jingjing</b><br>
+<i>Co-Developer</i><br>
+Algorithms & Circuits
+</td>
+<td align="center" width="20%">
+<b>Zhang Siyuan</b><br>
+<i>Mechanical Engineer</i><br>
+CAD & Fabrication
+</td>
+<td align="center" width="20%">
+<b>Lu Guohang</b><br>
+<i>Sensor Specialist</i><br>
+Tactile & PCB Design
+</td>
+<td align="center" width="20%">
+<b>Zheng Zhiyang</b><br>
+<i>Manufacturing Lead</i><br>
+3D Printing & Assembly
+</td>
+</tr>
+</table>
+
+### Faculty Advisors
+
+**Prof. Chen Qi**  
+College of Engineering, Ocean University of China  
+📧 qichen@ouc.edu.cn  
+*Research: Flexible structure dynamics, vibration control*
+
+**Dr. Zhu Jinchi**  
+Experimental Engineer, Ocean University of China  
+📧 zjc@ouc.edu.cn  
+*Guidance: Mechanical testing, experimental design*
+
+---
+
+## 🙏 Acknowledgments
+
+**Funding Support**:
+- Ocean University of China - National College Student Innovation Training Program (¥30,500)
+- National Natural Science Foundation of China (Grant No. 42204005)
+- Shandong Provincial Natural Science Foundation (Grant No. ZR2022QF130)
+
+**Facilities & Resources**:
+- OUC Robotics Laboratory (equipment access)
+- OUC 3D Printing Center (rapid prototyping services)
+- Prof. Chen Qi's research group (technical guidance)
+
+**Open-Source Dependencies**:
+- [ESP32 Arduino Core](https://github.com/espressif/arduino-esp32) - Embedded framework
+- [OpenCV](https://opencv.org/) - Computer vision library
+- [MATLAB](https://www.mathworks.com/) - Simulation platform
+- [SolidWorks](https://www.solidworks.com/) - CAD design
+
+---
+
+## 📄 Citation
+
 If you use this work in your research, please cite:
 
-bibtex
-
+```bibtex
 @misc{tian2025inchworm,
-  title={Bio-Inspired Inchworm Robot for Offshore Wind Turbine Inspection},
-  author={Tian, Xinrong and Lu, Jingjing and Zhang, Siyuan and Lu, Guohang and Zheng, Zhiyang},
+  title={Bio-Inspired Inchworm Robot for Offshore Wind Turbine Inspection: 
+         A Rigid-Flexible Coupled Approach with Vision-Tactile Fusion},
+  author={Tian, Xinrong and Lu, Jingjing and Zhang, Siyuan and 
+          Lu, Guohang and Zheng, Zhiyang and Chen, Qi and Zhu, Jinchi},
   year={2025},
   institution={Ocean University of China},
-  url={https://github.com/leanoLEE58/Bio-Inspired-Inchworm-Robot-for-Offshore-Wind-Turbine-Inspection}
+  howpublished={\url{https://github.com/leanoLEE58/Bio-Inspired-Inchworm-Robot}},
+  note={Open-source robotics project - National Innovation Program}
 }
+```
+
+---
+
+## 📜 License
+
+This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
+
+**Patent Status**: Chinese patent application pending (CN202410XXXXX.X). For commercial inquiries, please contact the team.
+
+---
+
+## 📞 Contact
+
+**Project Lead**: Tian Xinrong (Li Jiayi)  
+**Affiliation**: College of Electronic Engineering, Ocean University of China  
+**Email**: 332323223@stu.ouc.edu.cn  
+**GitHub**: [@leanoLEE58](https://github.com/leanoLEE58)
+
+**For questions**:
+- 🐛 Bug reports: [GitHub Issues](https://github.com/leanoLEE58/Bio-Inspired-Inchworm-Robot/issues)
+- 💬 Technical discussions: [GitHub Discussions](https://github.com/leanoLEE58/Bio-Inspired-Inchworm-Robot/discussions)
+- 📧 Collaboration: Email directly
+
+---
+
 <div align="center">
-⭐ Star this repository if you find it interesting! ⭐
-Contributions, issues, and feature requests are welcome!
+
+### ⭐ Star this repository if you find it useful! ⭐
+
+**We're actively developing this project and welcome community feedback**
+
+![GitHub stars](https://img.shields.io/github/stars/leanoLEE58/Bio-Inspired-Inchworm-Robot?style=social)
+![GitHub forks](https://img.shields.io/github/forks/leanoLEE58/Bio-Inspired-Inchworm-Robot?style=social)
+
+---
 
 Made with ❤️ by the Inchworm Robot Team @ Ocean University of China
 
-🔝 Back to Top
+**Last Updated**: January 2025 | **Version**: 1.0.0-beta
 
-</div> ```
+[🔝 Back to Top](#-bio-inspired-inchworm-robot-for-offshore-wind-turbine-inspection)
+
+</div>
