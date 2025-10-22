@@ -741,7 +741,7 @@ We welcome contributions from the robotics community! Areas for improvement:
 <table>
 <tr>
 <td align="center" width="20%">
-<b>Tian Xinrong (Li Jiayi)</b><br>
+<b>Tian Xinrong 、Li Jiayi</b><br>
 <i>Project Lead</i><br>
 Control Systems & Vision<br>
 📧 <a href="mailto:332323223@stu.ouc.edu.cn">Email</a>
