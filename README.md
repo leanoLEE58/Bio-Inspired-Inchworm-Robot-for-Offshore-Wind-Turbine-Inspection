@@ -387,8 +387,8 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 Note: Patent pending (CN202410XXXXX.X). For commercial use, please contact the team.
 
 📞 Contact
-Project Lead: Tian Xinrong (Li Jiayi)
-Email: 332323223@stu.ouc.edu.cn
+Project Lead:Li Jiayi、Tian Xinrong
+Email: leanoLEE58@gmail.com
 Institution: Ocean University of China
 GitHub: @leanoLEE58
 
