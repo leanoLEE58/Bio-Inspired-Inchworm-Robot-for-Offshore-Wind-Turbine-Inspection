@@ -834,7 +834,7 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 **Project Lead**: Tian Xinrong、Li Jiayi、Lu Jingjing、Lu Guohang、Zheng Zhiyang、Zhang Siyuan
 **Affiliation**: College of Electronic Engineering, Ocean University of China  
-**Email**: 332323223@stu.ouc.edu.cn  
+**Email**: leanolee58@gmai.com、332323223@stu.ouc.edu.cn  
 **GitHub**: [@leanoLEE58](https://github.com/leanoLEE58)
 
 **For questions**:
