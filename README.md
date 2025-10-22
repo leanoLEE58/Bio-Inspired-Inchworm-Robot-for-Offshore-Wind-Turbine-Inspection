@@ -811,7 +811,7 @@ If you use this work in your research, please cite:
 @misc{tian2025inchworm,
   title={Bio-Inspired Inchworm Robot for Offshore Wind Turbine Inspection: 
          A Rigid-Flexible Coupled Approach with Vision-Tactile Fusion},
-  author={Tian, Xinrong and Lu, Jingjing and Zhang, Siyuan and 
+  author={Tian, Xinrong and Li Jiayi and Lu, Jingjing and Zhang, Siyuan and 
           Lu, Guohang and Zheng, Zhiyang and Chen, Qi and Zhu, Jinchi},
   year={2025},
   institution={Ocean University of China},
