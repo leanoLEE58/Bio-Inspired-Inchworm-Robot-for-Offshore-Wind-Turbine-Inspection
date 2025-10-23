@@ -5,7 +5,7 @@
 [![Project Status](https://img.shields.io/badge/Status-Prototype%20Testing-yellow)](https://github.com/leanoLEE58/Bio-Inspired-Inchworm-Robot)
 [![University](https://img.shields.io/badge/University-Ocean%20University%20of%20China-blue)](http://www.ouc.edu.cn/)
 [![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
-[![Funding（Proposal）](https://drive.google.com/file/d/1B0JYfbPkvaEYSYDNv414ZGevBeQjS8nl/view?usp=sharing)]()
+[![Funding](https://drive.google.com/file/d/1B0JYfbPkvaEYSYDNv414ZGevBeQjS8nl/view?usp=sharing)]()
 
 **A Rigid-Flexible Coupled Robotic System with Vision-Tactile Fusion for Confined Space Inspection**
 
