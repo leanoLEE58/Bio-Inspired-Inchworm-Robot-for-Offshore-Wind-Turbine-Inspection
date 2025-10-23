@@ -594,7 +594,7 @@ where $m_1, m_2, m_3$ are individual PAM lengths, and $h$ is structural height p
 
 [![Full System Demo](https://img.youtube.com/vi/1U_8g-SPhKs/maxresdefault.jpg)](https://www.youtube.com/watch?v=1U_8g-SPhKs)
 
-**Video 1**: Integrated system performance - Locomotion, multi-modal detection, and safe manipulation in simulated wind turbine blade cavity
+**Video 1**: Simple demo of integrated system performance - Locomotion, multi-modal detection, and safe manipulation in simulated wind turbine blade cavity
 
 ---
 
@@ -602,7 +602,7 @@ where $m_1, m_2, m_3$ are individual PAM lengths, and $h$ is structural height p
 
 [![Locomotion Demo](https://img.youtube.com/vi/cCN1oI8rT0M/maxresdefault.jpg)](https://youtu.be/cCN1oI8rT0M)
 
-**Video 2**: Bio-inspired gait cycle demonstration in Ø30 cm confined space with real-time sensor feedback visualization
+**Video 2**: Introduce the project by prensentation.
 
 </div>
 
